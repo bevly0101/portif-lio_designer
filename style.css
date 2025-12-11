@@ -5,7 +5,8 @@
 :root {
     --bg-color: #121212;
     --text-color: #E0E0E0;
-    --primary-color: #00A7FF; /* Electric Blue */
+    --primary-color: #00A7FF;
+    /* Electric Blue */
     --card-bg-color: #1E1E1E;
     --border-color: #333;
     --font-family: 'Poppins', sans-serif;
@@ -29,7 +30,9 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: #FFFFFF;
     font-weight: 600;
 }
@@ -219,6 +222,7 @@ section {
         flex-direction: column;
         text-align: center;
     }
+
     .about-content img {
         max-width: 200px;
     }
@@ -227,9 +231,8 @@ section {
 
 /* --- PROJECTS SECTION --- */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    column-count: 3;
+    column-gap: 2rem;
 }
 
 .project-card {
@@ -237,11 +240,15 @@ section {
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    display: inline-block;
+    width: 100%;
 }
 
 .project-card img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     transition: transform 0.4s ease;
 }
@@ -403,6 +410,12 @@ section {
 }
 
 /* --- RESPONSIVE DESIGN --- */
+@media (max-width: 1024px) {
+    .projects-grid {
+        column-count: 2;
+    }
+}
+
 @media (max-width: 768px) {
     h2 {
         font-size: 2rem;
@@ -418,6 +431,10 @@ section {
 
     .nav-menu {
         /* Basic mobile menu setup - can be enhanced with JS */
-        display: none; 
+        display: none;
+    }
+
+    .projects-grid {
+        column-count: 2;
     }
 }
